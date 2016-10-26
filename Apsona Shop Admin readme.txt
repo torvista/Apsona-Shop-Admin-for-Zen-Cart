@@ -24,13 +24,15 @@ Refresh your Admin and "Apsona Shop Admin" should be listed in the tools menu.
 Use
 ---
 Clicking on the menu item should start the Shop Admin page (showing a header with your user details), then download the Shop Admin code to create a dashboard in the rest of the page.
-If not, and only the top section of the page is displayed...your id is probably wrong.
-If not, read the support thread: http://www.zen-cart.com/showthread.php?153990-Apsona-ShopAdmin-a-free-tool-for-import-mass-update-reporting
-Do not send support emails to Apsona about this service, they will not respond. They know it works.
+If not, and only the top section of the page is displayed with no account info...your id is probably wrong.
+If the account info is shown and the footer, but nothing in the middle and it is ZC155, check the admin/includes/configure.php does not still have apsona constants in there from ZC154 as detailed below.
+
+Otherwise, read the support thread: http://www.zen-cart.com/showthread.php?153990-Apsona-ShopAdmin-a-free-tool-for-import-mass-update-reporting
+Do NOT send support emails to Apsona about this service, they will not respond. It was a test bed for what they are doing now and they know it works.
 
 FAQ
 ---
-1) In the case of Zen Cart 1.54, admin/includes/configure.php uses a function zen_parse_url to auto-determine the current admin path for the constants DIR_WS_ADMIN and DIR_WS_HTTPS_ADMIN.
+1) In the case of Zen Cart 1.54 ONLY, admin/includes/configure.php used a function zen_parse_url to auto-determine the current admin path for the constants DIR_WS_ADMIN and DIR_WS_HTTPS_ADMIN.
 This function cannot be accessed by the Apsona code so the Apsona Shop Admin page will not load.
 There is a browser console error associated with this problem:
 <br />
@@ -44,14 +46,14 @@ define('DIR_WS_ADMIN', preg_replace('#^' . str_replace('-', '\-', zen_parse_url(
 
 Replace with
 //define('DIR_WS_ADMIN', preg_replace('#^' . str_replace('-', '\-', zen_parse_url(HTTP_SERVER, '/path')) . '#', '', dirname($_SERVER['SCRIPT_NAME'])) . '/');//ZC154 original, commented out for Apsona
-define('DIR_WS_ADMIN', '/YourAdminFolder/');//Apsona for ZC154  
+define('DIR_WS_ADMIN', '/YourAdminFolder/');//Apsona for ZC154 ONLY. REMOVE FOR ZC155 ONWARDS 
 
 b) Original
 define('DIR_WS_HTTPS_ADMIN', preg_replace('#^' . str_replace('-', '\-', zen_parse_url(HTTP_SERVER, '/path')) . '#', '', dirname($_SERVER['SCRIPT_NAME'])) . '/');  
 
 Replace with 
 //define('DIR_WS_HTTPS_ADMIN', preg_replace('#^' . str_replace('-', '\-', zen_parse_url(HTTP_SERVER, '/path')) . '#', '', dirname($_SERVER['SCRIPT_NAME'])) . '/');//ZC154 original, commented out for Apsona  
-define('DIR_WS_HTTPS_ADMIN', DIR_WS_ADMIN);//Apsona for ZC154
+define('DIR_WS_HTTPS_ADMIN', DIR_WS_ADMIN);//Apsona for ZC154 ONLY. REMOVE FOR ZC155 ONWARDS 
 
 2) For Apsona to open in a new tab instead of changing browser window focus.
 
@@ -75,6 +77,8 @@ To
               </ul>
 
 ==================================================
+
+
 
 Changelog
 ---------
