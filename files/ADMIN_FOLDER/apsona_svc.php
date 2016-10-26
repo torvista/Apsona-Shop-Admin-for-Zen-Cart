@@ -15,7 +15,7 @@ if (file_exists('includes/local/configure.php')) {
 } else {
 include ('includes/configure.php');}
 //torvista for ZC155
-if (!defined('DIR_WS_ADMIN')) include ('includes/defined_paths.php');//from Zen Cart 1.55
+if (file_exists('includes/defined_paths.php')) include ('includes/defined_paths.php');//from Zen Cart 1.55 onwards
 
 require (DIR_FS_CATALOG . DIR_WS_INCLUDES . 'database_tables.php');
 require ('apsona_config.php');
