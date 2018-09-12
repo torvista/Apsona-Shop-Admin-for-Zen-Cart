@@ -1,6 +1,6 @@
 # Apsona-Shop-Admin-for-Zen-Cart
 
-Apsona Shop Admin for Zen Cart - Updated fileset for Zen Cart 1.55a (mysqli, php7)
+Apsona Shop Admin for Zen Cart - Updated fileset for Zen Cart 1.55f (mysqli, php7)
 
 Apsona does not support this code anymore but maintains their servers operational to allow existing code to work: each time you use Apsona Shop Admin, their "current" code (and any customisations done by Apsona for you) is downloaded to your browser.
 
@@ -87,7 +87,7 @@ Changelog
 2015 torvista: changed code to use mysqli
 
 2012 fileset 3 from Apsona: "shopAdminUpdateForZenCart1dot5"
-only additions for registering the menu item in the tools menu
+only additions for registering the menu item in the Tools menu
 2010 fileset 2 from Apsona: "apsona-zencart-addon-update-latest"
 changes to 
 apsona_functions.php
